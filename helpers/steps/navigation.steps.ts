@@ -6,12 +6,26 @@ export class NavigationSteps {
   }
 
   static async goToPreferencesByUi(page: Page) {
-    await page.locator('#vector-user-links-dropdown-checkbox').click();
     const preferencesLink = page.locator('#pt-preferences a');
+    const profileButton = page.locator('#vector-user-links-dropdown-checkbox');
 
-    await preferencesLink.scrollIntoViewIfNeeded();
-    await preferencesLink.waitFor({ state: 'visible' });
-    await preferencesLink.click({ force: true });
+    const openMenuAndClickPreferences = async () => {
+      await profileButton.click();
+
+      await Promise.all([
+        page.waitForURL(/Special:Preferences/),
+        preferencesLink.click(),
+      ]);
+    };
+
+    try {
+      await openMenuAndClickPreferences();
+    } catch {
+      await page.keyboard.press('Escape');
+
+      await openMenuAndClickPreferences();
+    }
+
     await expect(page.locator('form#mw-prefs-form')).toBeVisible();
   }
 }
