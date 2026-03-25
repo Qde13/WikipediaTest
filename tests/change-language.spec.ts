@@ -5,7 +5,7 @@ import { PreferencesSteps } from '../helpers/steps/preferences.steps';
 import { NavigationSteps } from '../helpers/steps/navigation.steps';
 dotenv.config();
 
-test('Check that language can be changed to Ukrainian', async ({ page }) => {
+test('Authorized user can change language to Ukrainian', async ({ page }) => {
   await NavigationSteps.goToHomePageByUrl(page);
   await LoginSteps.login(page);
   await NavigationSteps.goToPreferencesByUi(page);
