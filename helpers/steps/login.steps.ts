@@ -1,7 +1,4 @@
 import { expect, Page } from '@playwright/test';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 export class LoginSteps {
   static async login(
@@ -14,8 +11,10 @@ export class LoginSteps {
     await page.getByPlaceholder('Enter your password').fill(password);
     await page.getByRole('button', { name: 'Log in' }).click();
 
-    await expect(
-      page.locator('#vector-user-links-dropdown-checkbox'),
-    ).toBeVisible();
+    await page.waitForURL('https://en.wikipedia.org/wiki/Main_Page');
+
+    await page
+      .locator('#vector-user-links-dropdown-checkbox')
+      .waitFor({ state: 'visible' });
   }
 }
