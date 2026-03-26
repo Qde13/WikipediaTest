@@ -4,6 +4,9 @@ services:
     container_name: wiki-language-tests
     env_file:
       - .env
+    environment:
+      - USER_NAME
+      - PASSWORD
     volumes:
       - ./playwright-report:/app/playwright-report
       - ./test-results:/app/test-results
