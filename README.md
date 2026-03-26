@@ -51,7 +51,7 @@ npx playwright test
 
 ### 4. Run tests in Docker
 
-docker compose up --build --abort-on-container-exit
+docker compose --env-file .env up --build --abort-on-container-exit
 
 ## Test Report
 

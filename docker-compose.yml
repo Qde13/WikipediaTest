@@ -2,8 +2,6 @@ services:
   playwright:
     build: .
     container_name: wiki-language-tests
-    env_file:
-      - .env
     environment:
       - USER_NAME
       - PASSWORD
