@@ -45,12 +45,18 @@ Create a .env file in the project root:
 USER_NAME=username
 PASSWORD=password
 
-### 3. Run tests locally
+### 3. To run tests locally
 
+Install playwright using::
+npx playwright install
+
+Run playwright tests using:
 npx playwright test
 
-### 4. Run tests in Docker
+### 4. To run tets in Docker
 
+Make sure that Docker Desktop is running
+Use command to run tests in docker container
 docker compose --env-file .env up --build --abort-on-container-exit
 
 ## Test Report
