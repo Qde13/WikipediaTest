@@ -20,7 +20,7 @@ The test is implemented using **Playwright + TypeScript** and can be executed bo
 
 ### Steps:
 
-1. Open Wikipedia homepage
+1. Open the Wikipedia homepage
 2. Log in with valid credentials
 3. Open **Preferences** section via user menu
 4. Navigate to **User profile → Internationalisation**
@@ -47,21 +47,22 @@ PASSWORD=password
 
 ### 3. To run tests locally
 
-Install playwright using::
+Install playwright using:
 npx playwright install
 
 Run playwright tests using:
 npx playwright test
 
-### 4. To run tets in Docker
+### 4. To run tests in Docker
 
 Make sure that Docker Desktop is running
-Use command to run tests in docker container
+Use the command to run tests in docker container
 docker compose --env-file .env up --build --abort-on-container-exit
 
 ## Test Report
 
 After test execution, a Playwright HTML report is generated.
-Report can be opened manualy in any browser or by using 'playwright-report/index.html'
+The report can be opened manually from 'playwright-report/index.html' in any browser 
+Or by using 'npx playwright show-report'
 
 - The report is automatically copied from the Docker container to the host machine
